@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <TextView
+        android:id="@+id/welcome"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Welcome to the Twitter App!"/> 
+    <TextView
+        android:id="@+id/name_text"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Enter Username Below"
+        android:layout_below="@id/welcome"/>
+    <EditText
+        android:id="@+id/name_entry"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/editbox_background"
+        android:layout_below="@id/name_text"
+        />       
+    <TextView
+        android:id="@+id/pin_text"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Enter Pin Below"
+        android:layout_below="@id/name_entry"/>
+    <EditText
+        android:id="@+id/pin_entry"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/editbox_background"
+        android:layout_below="@id/pin_text"
+        />
+    <Button
+        android:id="@+id/start_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pin_entry"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="0dip"
+        android:text="Complete Authentication" 
+                android:onClick="onClick"/> 
+
+</RelativeLayout>
