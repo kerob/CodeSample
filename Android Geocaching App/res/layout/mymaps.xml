@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent">
+	<LinearLayout
+  		android:orientation="vertical" android:layout_width="match_parent"
+  		android:layout_height="wrap_content">
+    	<EditText android:layout_width="match_parent" android:text="@string/sample_location"
+    		android:layout_height="wrap_content" android:id="@+id/address_text"></EditText>
+		<LinearLayout
+  			android:orientation="horizontal" android:layout_width="match_parent"
+  			android:layout_height="wrap_content">
+    		<Button android:onClick="onClick" android:layout_width="0dip"
+    			android:layout_height="wrap_content" android:text="@string/set"
+    			android:id="@+id/set" android:layout_weight="1"></Button>
+    		<Button android:onClick="onClick" android:layout_width="0dip"
+    			android:layout_height="wrap_content" android:text="@string/finished"
+    			android:id="@+id/finish_button" android:layout_weight="1"></Button>
+		</LinearLayout>    		
+    		
+	</LinearLayout>
+    <com.google.android.maps.MapView 
+        android:id="@+id/mapView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:enabled="true"
+        android:clickable="true"
+	    android:apiKey="@string/mapskyle"
+        />
+
+    <LinearLayout android:id="@+id/zoom" 
+        android:layout_width="wrap_content" 
+        android:layout_height="wrap_content" 
+        android:layout_alignParentBottom="true" 
+        android:layout_centerHorizontal="true" 
+        /> 
+</LinearLayout>

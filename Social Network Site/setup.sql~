@@ -1,0 +1,17 @@
+/* temporarily connect to some existing database so that we can drop
+and recreate aggbook
+*/
+\connect sportsdb
+drop database if exists aggbook;
+create database aggbook;
+\connect aggbook
+
+/* create your tables, indexes, etc. here */
+create table USERS(
+uID int not null,
+uName varchar2(50) not null,
+email varchar2(50) not null,
+pWord varchar2(50) not null
+);
+
+insert into USERS values(2,'Test','test@test.com', '123'); 

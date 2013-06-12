@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="hello">Hello World, BreadCrumbs!</string>
+	<string name="app_name">BreadCrumbs</string>
+	<string name="menu_insert">Create Note</string>
+	<string name="no_notes">No Notes</string>
+	<string name="sample_location">2689 Sycamore Lane, Davis CA 95616</string>
+	<string name="set">Set</string>
+	<string name="finished">Finished</string>
+	<string name="delete">Delete Note</string>
+	<string name="mapskyle">0oY1E_YTH5uUwec-OM1CQjmyXQKA3ZE87GAO-MQ</string>
+</resources>

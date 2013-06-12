@@ -1,0 +1,35 @@
+Team members (please include @ucdavis email aliases):
+Kyle Robles
+kerobles@ucdavis.edu
+
+
+Architectural description:
+The basic schema of my database is as follows:
+
+users(uID, uName, email, pWord, about, fcount)
+relation(friend1, friend2)
+board(profile, poster, pname, message, datetime)
+pending(sender, recieve)
+
+For table users, uID is the profile ID matched to the user, uName is their name, email is the log in email, pWord is a 32bit hex number of their password which was encoded via the md5 function in php, about is an optional field to describe the user and fcount is the total number of friends that user has.
+
+The relation table has friend1 and friend2 which are both recorded values of distinct user ids which show if the two users are friends.
+
+The board table has profile which is a userid that designates who's profile the board belongs to, poster which registers the owner of a post on a board, pname is the poster's name for a specific message, message is the actual content of the board post and datetime is a time stamp to show when a message was posted.
+
+The last table pending shows pending friend requests with sender and recieve both being user ids, the first being the user who asks for a friend request with the second being the one who recieves it.
+
+The format of the site itself is the given skeleton layout as I was not able to do any decorative extra credit to change the format due to time constraints. 
+
+
+Extra credit features:
+
+Along with the minimum specs I was also able to implement some conditionals to entries into the database;
+
+Using php and postgresql, I was able to make some pseudo triggers to halt entries on the following conditions:
+
+1. You cannot become friends with yourself
+2. If you are already friends with someone, you cannot befriend them again.
+3. The message board is order so that the newest message is displayed at the top.
+
+These were the only additions I had time to fully implement. I feel that all together this should get me 6 to 8 points considering I am a solo group and that they are somewhat minor additions. 

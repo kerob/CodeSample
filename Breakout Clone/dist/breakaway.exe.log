@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "breakaway.py", line 9, in <module>
+  File "breakaway.py", line 12, in Player
+  File "games.pyc", line 842, in load_image
+games.GamesError: Could not load image "bouncer.jpg" Couldn't open bouncer.jpg

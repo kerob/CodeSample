@@ -1,0 +1,160 @@
+<?php
+// session_start() creates a session or resumes the current one based 
+// on a session identifier passed via a GET or POST request, or 
+// passed via a cookie. 
+session_start();
+// Write your code here to open a connection to the database server
+
+
+?>
+<html>
+<head>
+<!-- $_SESSION[] is an associative array containing session variables available to the current script. -->
+<title>Welcome to Aggbook <?php echo $_SESSION['name']; ?></title>
+</head>
+<body>
+<img src="youthmark.gif"/>
+<h1>Welcome to Aggbook, <?php echo $_SESSION['name']; ?>!</h1>
+
+<table cellspacing="20">
+  <tr valign="top">
+    <td>
+      <h2>Viewing Profile</h2>
+      <table>
+	<tr><th>Name</th><td><?php echo "hardcoded name value"; ?></td></tr>
+	<tr><th>Email</th><td><i><?php echo "hardcoded email value"; ?></i></td></tr>
+	<tr><th>About</th><td><?php echo "hardcoded about value"; ?></td></tr>
+      </table>
+    </td>
+    <td>
+      <h2>Friends</h2>
+<?php
+// deal with add/remove of friend
+// $_POST[] is an associative array of variables passed to the current script via the HTTP POST method.
+if ($_POST['add_friend'] || $_POST['remove_friend']) {
+  // Write your code here to retrieve friend data from the database
+
+  if (0 /* Add some condition, we used a hardcoded value in the skeleton page */) {
+      // Write your code here to handle the situation in which the email doesn't exist
+
+?>
+      <p/><b>Unrecognized email address</b><p/>
+<?php
+    } else if ($_POST['add_friend']) {
+      // Write your code here to handle the add_friend request
+
+?>
+      <b>Friend request recorded</b><p/>
+<?php
+    } else {
+      // Write your code here to handle the remove_friend request
+       
+?>
+      <b>Friend dropped</b><p/>
+<?php
+    }
+} else if ($_POST['accept_request'] || $_POST['decline_request']) {
+  // Write code here to process the accept_request/decline_request request
+    
+      if ($_POST['accept_request']) {
+        // Write code here to connect to database and update the database content in order to
+        // reflect the acceptance of friend request
+
+    }
+}
+
+// Write your code here to retrieve friends, along with a count of their friends
+
+?>
+<table>
+<?php
+// Write your code here to fetch the friends data from the database
+while (0 /* we used a hardcoded value here, but you should add your own while loop condtion */) {
+?>
+  <tr>
+  // display friend data one row at a time
+  // we use hardcoded data in the skeleton page, but you should get some real data
+  // from the database server
+    <td><a href="?profile=<?php echo 1; ?>"><?php echo "Todd J. Green"; ?></a></td>
+    <td><i><?php echo "green@cs.ucdavis.edu"; ?></i></td>
+    <td>(<?php echo "2"; ?> friend(s))</td>
+  </tr>
+<?php
+}
+?>
+</table>
+<?php
+// Write your code here to fetch pending requests if a user is viewing
+// his or her own page
+if ($uid == $uidView) {
+      if (0/*You might need to check whether is is any pending requests*/ ){  
+?>
+<h2>Pending friend requests</h2>
+<?php
+      // Write your code here to list the pending requests
+      while (0 /* You might need to put a while loop condition to list all pending requests */ ){
+?>
+<form action="<?php echo $_SERVER['PHP_SELF'] . '?' . http_build_query($_GET); ?>" method="POST">
+<input type="hidden" name="requestor" value="<?php echo $row['uid']; ?>"/>
+<input type="submit" name="accept_request" value="Accept request"/>
+<input type="submit" name="decline_request" value="Decline request"/>
+</form>
+<?php
+        }
+?>
+<?php
+    }
+?>
+<p/>
+<form action="<?php echo $_SERVER['PHP_SELF'] . '?' . http_build_query($_GET); ?>" method="POST">
+Email:<br/>
+<input name="email" type="text" size="32"/>
+<p/>
+<input type="submit" name="add_friend" value="Add Friend"/>
+<input type="submit" name="remove_friend" value="Remove Friend"/>
+
+</form>
+<?php
+}
+?>
+</td>
+<tr>
+  <td>
+    <h2>Message Board</h2>
+    <form action="<?php echo $_SERVER['PHP_SELF'] . '?' . http_build_query($_GET); ?>" method="POST">
+    <textarea name="message" cols="32" rows="4">
+    </textarea>
+    <p/>
+    <input type="submit" name="create" value="Post message"/>
+    </form>
+<?php
+    if ($_POST['create']) {
+        $text = $_POST['message'];
+	// Write your code here to process a message-create request
+   
+    }
+    // Write your code here to list all messages on the wall
+   
+    while (0 /* while loop condition to retrieve message data from the database */) {
+      // Retrieve a message from the database
+
+    ?>
+        // List all the messages on the wall, we use some hardcoded data here
+        // but you should retrieve data from the database in your page
+        <table>
+	  <tr><td>By <?php echo "Chengyi"; ?> at <?php echo "Mar 7, 2011"; ?>:</td></tr>
+	  <tr><td width=100><?php echo "Text content here"; ?></td></tr>
+	</table>
+    <?php
+    }
+?>
+  </td>
+  <td>
+    <h2><a href="logout.php">Log out</a></h2>
+  </td>
+<?php
+// Write your code here to close the connection to the database server
+
+?>
+
+</body></html>
